@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Investimento</title>
+    <style>
+        input[type="number"] {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Investimento</h1>
+    <form id="investmentForm">
+        <label for="totalInvestment">Total do Investimento:</label>
+        <input type="number" id="totalInvestment" required><br><br>
+        <button type="button" onclick="calculateInvestment()">Calcular</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        function calculateInvestment() {
+            var totalInvestment = parseFloat(document.getElementById('totalInvestment').value);
+            var fixedIncomePercentage = 0.6;
+            var variableIncomePercentage = 0.4;
+
+            var fixedIncomeAmount = totalInvestment * fixedIncomePercentage;
+            var variableIncomeAmount = totalInvestment * variableIncomePercentage;
+
+            document.getElementById('result').innerHTML = "<h2>Resultados:</h2>" +
+                "<p>Investir em Renda Fixa: R$ " + fixedIncomeAmount.toFixed(2) + "</p>" +
+                "<p>Investir em Renda Variável: R$ " + variableIncomeAmount.toFixed(2) + "</p>";
+        }
+    </script>
+</body>
+</html>
